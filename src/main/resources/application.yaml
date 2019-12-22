@@ -1,1 +1,35 @@
+spring:
+  output:
+    ansi:
+      enabled: always
+  redis:
+    port: 6379
+    host: 127.0.0.1
+  datasource:
+    # 数据存放在内存
+    url: jdbc:h2:mem:helloRedis;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  jpa:
+    database-platform: H2
+    hibernate:
+      # 自动更新表结构
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      # 访问H2控制台的路径
+      path: /h2-console
+      settings:
+        trace: false
+        # 远程访问控制台
+        web-allow-others: true
 
+logging:
+  level:
+    root: debug
+    org.springframework.web: error
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace
