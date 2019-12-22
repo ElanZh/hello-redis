@@ -26,6 +26,13 @@ spring:
         # 远程访问控制台
         web-allow-others: true
 
+cache:
+  default:
+    expire-time: 5000
+  user:
+    expire-time: 2000
+    name: helloRedis
+
 logging:
   level:
     root: debug
@@ -33,3 +40,4 @@ logging:
     org.hibernate.SQL: debug
     org.hibernate.type.descriptor.sql.BasicBinder: trace
     org.hibernate.type.descriptor.sql.BasicExtractor: trace
+    com.zaxxer.hikari: error
