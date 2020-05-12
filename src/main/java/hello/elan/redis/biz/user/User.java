@@ -1,6 +1,11 @@
 package hello.elan.redis.biz.user;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import hello.elan.redis.config.DateTimeJsonComponent;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @lombok.Data
@@ -19,4 +24,9 @@ public class User {
 
     @Column(length = 10, nullable = false)
     private String gender;
+
+    @JsonSerialize(using = DateTimeJsonComponent.DateTimeSerializer.class)
+    @JsonDeserialize(using = DateTimeJsonComponent.DateTimeDeserializer.class)
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createAt;
 }

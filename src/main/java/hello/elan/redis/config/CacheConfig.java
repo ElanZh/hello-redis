@@ -42,9 +42,9 @@ public class CacheConfig {
         // 设置缓存管理器管理的缓存的默认过期时间
         defaultCacheConfig = defaultCacheConfig.entryTtl(Duration.ofSeconds(defaultExpireTime))
                                                // 设置 key为string序列化
-                                               .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
+                                               .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(keySerializer()))
                                                // 设置value为json序列化
-                                               .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()))
+                                               .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(valueSerializer()))
                                                // 不缓存空值
                                                .disableCachingNullValues();
 
