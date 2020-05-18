@@ -5,6 +5,7 @@ spring:
   redis:
     port: 6379
     host: 1haoji
+    database: 1
   datasource:
     # 数据存放在D盘
     url: jdbc:h2:file:D:/H2_DB/helloRedis;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
@@ -32,11 +33,12 @@ cache:
   user:
     expire-time: 2000
     name: helloRedis
+  menu:
 
 logging:
   level:
-    root: debug
-    org.springframework: debug
+    root: info
+#    org.springframework: debug
     org.springframework.web: error
     org.hibernate: info
     org.hibernate.SQL: debug
